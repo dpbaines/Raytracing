@@ -47,3 +47,19 @@ bool intersect_circle(Sphere sphere, Ray ray, Vector *pHit) {
 
     return false;
 }
+
+bool intersect_plane(Plane plane, Ray ray, Vector pHit) {
+    double denom = dot(ray.vector, plane.normal);
+    double num = dot(minus(plane.origin, ray.origin), plane.normal);
+    double d = num/denom;
+
+    Vector point;
+    point.x = ray.origin.x + ray.vector.x * d;
+    point.y = ray.origin.y + ray.vector.y * d;
+    point.z = ray.origin.z + ray.vector.z * d;
+
+    if(magnitude(minus(plane.origin, point)) > plane.radius) return false;
+    pHit = point;
+
+    return true;
+}

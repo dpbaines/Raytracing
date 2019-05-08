@@ -20,9 +20,10 @@ typedef struct sphere {
     double radius;
 } Sphere;
 
-typedef struct plane {
-    Vector vector1;
-    Vector vector2;
+typedef struct disc {
+    Vector origin;
+    Vector normal;
+    double radius;
 } Plane;
 
 typedef struct light {

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "png.h": "c",
+        "image.h": "c",
+        "stdio.h": "c"
+    }
+}

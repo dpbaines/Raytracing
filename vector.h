@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <math.h>
+#include "image.h"
 
 typedef struct vector  {
     double x;
@@ -18,6 +19,7 @@ typedef struct ray {
 typedef struct sphere {
     Vector position;
     double radius;
+    pixel_t colour;
 } Sphere;
 
 typedef struct disc {
@@ -31,4 +33,8 @@ typedef struct light {
     double brightness;
 } Light;
 
-#endif VECTOR_H
+bool intersect_circle(Sphere sphere, Ray ray, Vector *pHit);
+Vector minus(Vector vector1, Vector vector2);
+Vector normalize(Vector v);
+
+#endif

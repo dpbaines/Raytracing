@@ -99,29 +99,6 @@ float HueToRGB(float v1, float v2, float vH) {
 	return v1;
 }
 
-void generate_image(char* name, int *array, int size, int width1, int height1) {
-    bitmap_t image;
-
-    image.width = width1;
-    image.height = height1;
-
-    image.pixels = calloc (image.width * image.height, sizeof (pixel_t));
-
-    for(int i = 0; i<size; i++) {
-        pixel_t colour;
-        generate_rainbow(&colour, array[i], size);
-
-        int dx = image.width/size;
-        draw_rect(&image, dx*i, dx*i + dx, 0, image.height, colour);
-    }
-    
-    if (save_image(&image, name)) {
-        fprintf (stderr, "Error writing file.\n");
-    }
-
-    free(image.pixels);
-}
-
 void HSLToRGB(int H, float S, float L, int *R, int *G, int *B) {
 	if (S == 0)
 	{

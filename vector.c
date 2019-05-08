@@ -20,6 +20,15 @@ Vector minus(Vector vector1, Vector vector2) {
     return newVector;
 }
 
+Vector normalize(Vector v) {
+    Vector v1;
+
+    v1.x = v.x / magnitude(v);
+    v1.y = v.y / magnitude(v);
+    v1.z = v.z / magnitude(v);
+    return v1;
+}
+
 bool intersect_circle(Sphere sphere, Ray ray, Vector *pHit) {
     double determinant = pow(dot( ray.vector,  minus(ray.origin, sphere.position) ), 2)  -
             (  pow(magnitude(minus(ray.origin, sphere.position)) , 2) - 
